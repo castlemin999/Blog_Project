@@ -13,7 +13,7 @@ import com.choisblog.web.board.dao.BoardDAO;
 import com.choisblog.web.board.model.BoardVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/root-context.xml", 
+@ContextConfiguration(locations = {"classpath:spring/root-context.xml",
 								   "classpath:spring/dataSource-context.xml"})
 
 public class BoardDAOTest {
@@ -89,8 +89,8 @@ public class BoardDAOTest {
 		}
 	}
 
-	@Test   @Ignore
-	public void tesDeleteBoard() throws Exception {
+	@Test @Ignore
+	public void testDeleteBoard() throws Exception {
 		int result = boardDAO.deleteBoard(1);
 		logger.info("\n Delete Board Result \n ");
 		if(result > 0) {
