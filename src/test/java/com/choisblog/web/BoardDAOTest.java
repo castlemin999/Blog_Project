@@ -22,7 +22,7 @@ public class BoardDAOTest {
 	@Inject
 	private BoardDAO boardDAO;
 
-	@Test 
+	@Test @Ignore
 	public void testGetBoardList() throws Exception {
 		List<BoardVO> boardList = boardDAO.getBoardList();
 		logger.info("\n Board List \n ");
@@ -63,7 +63,7 @@ public class BoardDAOTest {
 		boardVO.setReg_id("1");
 		
 		int result = boardDAO.insertBoard(boardVO);
-		logger.info("\n Insert Board Result " +result);
+		logger.info("\n Insert Board Result " + result);
 		if(result == 1) {
 			logger.info("\n 게시물 등록 성공 ");
 		} else {
@@ -71,10 +71,10 @@ public class BoardDAOTest {
 		}
 	}
 
-	@Test @Ignore 
+	@Test @Ignore
 	public void testUpdateBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setBid(1);
+		boardVO.setBid(9);
 		boardVO.setCate_cd("1");
 		boardVO.setTitle("첫번째 게시물 입니다-수정 합니다.");
 		boardVO.setContent("첫번째 게시물입니다-수정합니다.");
