@@ -22,7 +22,7 @@ public class BoardDAOTest {
 	@Inject
 	private BoardDAO boardDAO;
 
-	@Test @Ignore
+	@Test 
 	public void testGetBoardList() throws Exception {
 		List<BoardVO> boardList = boardDAO.getBoardList();
 		logger.info("\n Board List \n ");

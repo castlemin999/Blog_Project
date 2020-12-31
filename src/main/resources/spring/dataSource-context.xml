@@ -17,7 +17,8 @@
 	<!--dataSource 객체 설정 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mess?useSSL=false&amp;serverTimezone=Asia/Seoul" />       
+		<!-- <property name="url" value="jdbc:mysql://127.0.0.1:3306/mess?allowPublicKeyRetrieval=true&amp;useSSL=false;serverTimezone=Asia/Seoul" /> -->       
+		<property name="url" value="jdbc:mysql://localhost:3306/mess?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />       
         <property name="username" value="mess"></property>
         <property name="password" value="mess"></property>
 	</bean>  
