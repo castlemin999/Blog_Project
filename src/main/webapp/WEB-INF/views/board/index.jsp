@@ -17,12 +17,14 @@
 			}
 		</style>
 		<script>
-		window.onload = function() {
-			var saveBtn = document.getElementById('btnWriteForm');
-			saveBtn.onclick = function(){
-				location.href = "/board/boardForm";
+			window.onload = function() {
+				var saveBtn = document.getElementById('btnWriteForm');
+				saveBtn.onclick = function(){
+					location.href = "/board/boardForm";
+					//location.replace("/board/boardForm");
+					// -> 아예 새로운 페이지로(이동 후 뒤로가기면 전 페이지 X)
+				}
 			}
-		}
 		</script>
 	</head>
 	<body>

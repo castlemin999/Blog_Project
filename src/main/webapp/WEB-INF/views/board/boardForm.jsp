@@ -10,11 +10,6 @@
 			  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
 			  crossorigin="anonymous">
 		<title>Board</title>
-		<script>
-		
-		
-		</script>
-		
 		<style>
 			body{
 				padding-top: 70px;
@@ -54,4 +49,32 @@
 			</div>
 		</article>
 	</body>
+	
+	<script>
+			window.onload = function(){
+				var listBtn = document.getElementById('btnList');
+				var insertBtn = document.getElementById('btnSave');
+				
+				listBtn.onclick = function(){
+					location.href = "/board/getBoardList";			
+				};
+				
+				insertBtn.onclick = function(){
+					if(validation()){
+						document.getElementById('form').submit();	
+					}
+					
+				};
+				
+			}
+			
+			function validation(){
+				var title = document.getElementById('title');
+				if(title.value === null || title.value === ''){
+					alert('제목을 입력해주세요.');
+					title.focus();
+					return false;
+				}
+			}
+		</script>
 </html>
