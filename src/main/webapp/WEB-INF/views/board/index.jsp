@@ -16,6 +16,14 @@
 				padding-bottom: 30px;
 			}
 		</style>
+		<script>
+		window.onload = function() {
+			var saveBtn = document.getElementById('btnWriteForm');
+			saveBtn.onclick = function(){
+				location.href = "/board/boardForm";
+			}
+		}
+		</script>
 	</head>
 	<body>
 	<article>
@@ -60,6 +68,9 @@
 						</c:choose>
 					</tbody>
 				</table>
+			</div>
+			<div>
+				<button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">글쓰기</button>
 			</div>
 		</div>
 	</article>
