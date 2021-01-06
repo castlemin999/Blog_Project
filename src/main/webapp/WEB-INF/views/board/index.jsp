@@ -1,21 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" 
-			  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-			  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
-			  crossorigin="anonymous">
-		<title>board</title>
-		<style>
-			body{
-				padding-top: 70px;
-				padding-bottom: 30px;
-			}
-		</style>
 		<script>
 			window.onload = function() {
 				var saveBtn = document.getElementById('btnWriteForm');
@@ -24,6 +13,12 @@
 					//location.replace("/board/boardForm");
 					// -> 아예 새로운 페이지로(이동 후 뒤로가기면 전 페이지 X)
 				}
+			}
+			
+			function fn_viewContent(int bid){
+				var url = "${pageContext.request.contextPath}/board/boardForm";	
+				url = url + "?bid = " + bid;
+				location.href = url;
 			}
 		</script>
 	</head>
@@ -60,7 +55,11 @@
 								<c:forEach var="list" items="${boardList}">
 									<tr>
 										<td><c:out value="${list.bid}"/></td>
-										<td><c:out value="${list.title}"/></td>
+										<td>
+											<a href="#" onClick="fn_viewContent()">
+												<c:out value="${list.title}"/>
+											</a>
+										</td>
 										<td><c:out value="${list.reg_id}"/></td>
 										<td><c:out value="${list.view_cnt}"/></td>
 										<td><c:out value="${list.reg_dt}"/></td>

@@ -1,21 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet"
-			  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-			  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
-			  crossorigin="anonymous">
-		<title>Board</title>
-		<style>
-			body{
-				padding-top: 70px;
-				padding-botton: 30px;
-			}
-		</style>		
 	</head>
 	<body>
 		<article>
@@ -57,24 +46,36 @@
 				
 				listBtn.onclick = function(){
 					location.href = "/board/getBoardList";			
-				};
+				}
 				
 				insertBtn.onclick = function(){
+					console.log('나는 야이야이야~')
 					if(validation()){
 						document.getElementById('form').submit();	
 					}
-					
-				};
-				
+				}
 			}
 			
 			function validation(){
 				var title = document.getElementById('title');
+				var regId = document.getElementById('reg_id');
+				var content = document.getElementById('content');
+				
 				if(title.value === null || title.value === ''){
 					alert('제목을 입력해주세요.');
 					title.focus();
 					return false;
+				}else if(regId.value === null || regId.value === ''){
+					alert('작성자를 입력해주세요.');
+					regId.focus();
+					return false;
+				}else if(content.value === null || content.value === ''){
+					alert('내용을 입력해주세요.');
+					content.focus();
+					return false;
 				}
+				
+				return true;
 			}
 		</script>
 </html>

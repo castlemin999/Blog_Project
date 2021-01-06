@@ -2,6 +2,8 @@ package com.choisblog.web.board.controller;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +20,9 @@ public class BoardController {
 	
 	@Inject
 	private BoardService boardService;
+	
+	static Logger logger = LoggerFactory.getLogger(BoardController.class);
+	
 	
 	// 블로그 리스트 조회
 	@RequestMapping(value = "/getBoardList", method = RequestMethod.GET)
@@ -36,7 +41,7 @@ public class BoardController {
 	@RequestMapping(value = "/saveBoard", method = RequestMethod.POST)
 	public String saveBoard(@ModelAttribute("BoardVO")BoardVO boardVO, RedirectAttributes rttr) throws Exception{
 		boardService.insertBoard(boardVO);
-		return "redirect/board/getBoardList";
+		return "redirect:/board/getBoardList";
 	}
 	
 }
